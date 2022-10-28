@@ -1,0 +1,44 @@
+<%- include ("partials/header.ejs"); %>
+<%- include ("partials/homenavbar.ejs"); %>
+<body>
+  <div class="container" >
+    <hr>
+    <div class="container" style="background-color: rgb(214, 247, 247);">
+        <h1 class="display-3"> Bem vindo ao blog do MaurãO</h1>
+        <p class="lead"><h3>Este e mais um projeto para meu portfólio pessoal</h3></p>
+        <hr class="my-4">
+        <p>Este site esta comtribuindo muito para um aprendizado do Node.js e bem bacana. - Interaja comigo participe você também deixe seu artigo em qualquer categoria ou se achar melhor crie uma nova categoria e seu artigo ou comentário.</p> 
+        <p>Visite tamtém meu repositório no Github <a href="https://github.com/designermauro" target="_blank" rel="external">https://github.com/designermauro</a> </p>       
+        <hr>
+        
+    </div>
+        <div >
+          <h2>Categorias </h2>
+          <% categories.forEach(category => { %>                        
+                <a class="nav-link shadow p-1 mb-5 bg-light " href="/category/<%= category.slug %>" style="display: inline;"><%= category.title %></a>                          
+          <% }) %>      
+          <hr>
+        </div>
+
+    <% articles.forEach(article => { %>
+          <div class="card">
+              <div class="card-header">
+                <h2><%= article.title %></h2>
+              </div>
+              <div class="vard-body">
+                <a href="/<%= article.slug %>" class="btn btn-success">Ler Artigo</a>
+              </div>              
+          </div>
+          <br>
+      <% }) %>
+
+      <div class="row">
+        <div class="col col-12">
+          <a style="float:right;" href="/articles/page/1"><strong>Next >>></strong></a>
+        </div>
+                
+        <hr>        
+      </div>
+   </div>        
+</body>
+<%- include ("partials/footer.ejs"); %>
